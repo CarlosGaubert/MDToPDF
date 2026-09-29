@@ -1,0 +1,438 @@
+/* MDToPDF - Estilos Base y Reglas de Impresión */
+
+:root {
+  --color-primary: #2563eb;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-border: #e2e8f0;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", "Fira Code", Menlo, Monaco, Consolas, monospace;
+  --font-heading: inherit;
+  --line-height: 1.65;
+  --font-size-base: 11pt;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Contenedor principal del documento */
+.document-content {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Reglas de Paginación y Evitar Cortes Huérfanos */
+@page {
+  /* Los márgenes son controlados por Puppeteer, pero aseguramos valores predeterminados */
+  size: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1.1em; }
+h5 { font-size: 0.95em; }
+h6 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+  orphans: 3;
+  widows: 3;
+}
+
+/* Saltos de Página */
+.page-break {
+  page-break-before: always;
+  break-before: page;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen {
+  .page-break {
+    display: block;
+    height: 16px;
+    margin: 3.5rem -12mm;
+    background-color: #151a26;
+    border-top: 1px dashed #334155;
+    border-bottom: 1px dashed #334155;
+    position: relative;
+    user-select: none;
+  }
+  .page-break::after {
+    content: "SALTO DE PÁGINA";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: #64748b;
+    letter-spacing: 0.1em;
+    background: #151a26;
+    padding: 0 12px;
+  }
+}
+
+/* Enlaces */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* Listas */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 1.8em;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+/* Listas de Tareas */
+.contains-task-list {
+  list-style-type: none;
+  padding-left: 0.5em;
+}
+
+.task-list-item {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.4em;
+}
+
+.task-list-item-checkbox {
+  margin-right: 0.6em;
+  transform: translateY(1px);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+/* Tablas de Alta Fidelidad y Ancho Completo */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.4em 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88em;
+  line-height: 1.45;
+  box-sizing: border-box;
+  table-layout: auto;
+}
+
+th, td {
+  padding: 0.55em 0.7em;
+  border: 1px solid var(--color-border);
+  vertical-align: top;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+}
+
+th {
+  background-color: var(--color-surface);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+td code, th code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  overflow-wrap: anywhere !important;
+  font-size: 0.86em;
+  padding: 0.15em 0.35em;
+}
+
+/* Bloques de Código: Gestionados por syntax.css */
+
+/* Citas (Blockquotes estándar) */
+blockquote:not(.callout) {
+  margin: 1.4em 0;
+  padding: 0.6em 1.2em;
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  font-style: italic;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Callouts / Alertas estilo GitHub */
+.callout {
+  margin: 1.4em 0;
+  padding: 0.9em 1.2em;
+  border-radius: 8px;
+  border-left: 4px solid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.callout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 600;
+  font-size: 0.92em;
+  margin-bottom: 0.4em;
+}
+
+.callout-icon {
+  flex-shrink: 0;
+}
+
+.callout-content {
+  font-size: 0.95em;
+  line-height: 1.55;
+}
+
+.callout-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Variantes de Callouts */
+.callout-note {
+  border-left-color: #2563eb;
+  background-color: #eff6ff;
+  color: #1e3a8a;
+}
+.callout-note .callout-header { color: #1d4ed8; }
+
+.callout-tip {
+  border-left-color: #16a34a;
+  background-color: #f0fdf4;
+  color: #14532d;
+}
+.callout-tip .callout-header { color: #15803d; }
+
+.callout-important {
+  border-left-color: #8b5cf6;
+  background-color: #f5f3ff;
+  color: #4c1d95;
+}
+.callout-important .callout-header { color: #6d28d9; }
+
+.callout-warning {
+  border-left-color: #d97706;
+  background-color: #fffbeb;
+  color: #78350f;
+}
+.callout-warning .callout-header { color: #b45309; }
+
+.callout-caution {
+  border-left-color: #dc2626;
+  background-color: #fef2f2;
+  color: #7f1d1d;
+}
+.callout-caution .callout-header { color: #b91c1c; }
+
+/* Matemáticas KaTeX */
+.math-block {
+  margin: 1.5em 0;
+  text-align: center;
+  overflow-x: auto;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Diagramas Mermaid */
+.mermaid-container, .mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5em 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  text-align: center;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Tabla de Contenidos (TOC) */
+.table-of-contents {
+  margin: 1.8em 0;
+  padding: 1.2em 1.5em;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.table-of-contents ul {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.table-of-contents li {
+  margin-bottom: 0.3em;
+}
+
+/* Notas al pie (Footnotes) */
+.footnotes {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85em;
+  color: var(--color-text-muted);
+}
+
+.footnotes-sep {
+  display: none;
+}
+
+/* Portada / Cover Page */
+.cover-page {
+  box-sizing: border-box;
+  min-height: 220mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  page-break-after: always;
+  break-after: page;
+}
+
+@media screen {
+  .cover-page {
+    min-height: auto;
+    border-bottom: 16px solid #151a26;
+    margin: 0 -12mm 3.5rem -12mm;
+    padding: 3rem 12mm 3.5rem 12mm;
+    position: relative;
+  }
+}
+
+.cover-accent-bar {
+  width: 72px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 3px;
+  margin-bottom: 2.5rem;
+}
+
+.cover-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cover-title {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  margin: 0 0 1rem 0 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.cover-subtitle {
+  font-size: 1.35rem !important;
+  font-weight: 400 !important;
+  color: var(--color-text-muted) !important;
+  margin: 0 0 2rem 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  line-height: 1.45 !important;
+}
+
+.cover-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  width: 100%;
+  margin: 2.5rem 0 2rem 0;
+}
+
+.cover-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.cover-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-meta-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.cover-meta-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+

@@ -1,0 +1,72 @@
+/* MDToPDF - Tema Editorial (Revista / Libro / Publicación Premium) */
+
+:root {
+  --color-primary: #991b1b;
+  --color-text: #262626;
+  --color-text-muted: #737373;
+  --color-bg: #fffdfa;
+  --color-surface: #f7f4ee;
+  --color-border: #e7e0d4;
+  --font-body: "Charter", "Palatino Linotype", "Palatino", "Book Antiqua", Georgia, serif;
+  --font-heading: "Playfair Display", "Didot", "Bodoni MT", "Georgia", serif;
+  --font-mono: "SF Mono", "Fira Code", monospace;
+  --line-height: 1.7;
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+h1 {
+  font-family: var(--font-heading);
+  color: #7f1d1d;
+  font-size: 2.4em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 1.2em;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin-top: 0.3em;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  color: #1c1917;
+  font-size: 1.6em;
+  font-weight: 600;
+  margin-top: 1.8em;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  color: #44403c;
+  font-size: 1.25em;
+}
+
+blockquote:not(.callout) {
+  border-left: 3px solid var(--color-primary);
+  background-color: var(--color-surface);
+  color: #44403c;
+  font-size: 1.1em;
+  padding: 1em 1.5em;
+  margin: 1.8em 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.table-of-contents {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-primary);
+}
+
+th {
+  background-color: #f2ede4;
+  color: #1c1917;
+}

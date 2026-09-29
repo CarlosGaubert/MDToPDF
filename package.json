@@ -1,0 +1,41 @@
+{
+  "name": "mdtopdf",
+  "version": "1.0.0",
+  "description": "Herramienta de conversión de Markdown a PDF con alta fidelidad y estética editorial",
+  "main": "src/converter.js",
+  "bin": {
+    "mdtopdf": "./bin/mdtopdf.js"
+  },
+  "scripts": {
+    "start": "node ./bin/mdtopdf.js",
+    "test": "node ./bin/mdtopdf.js ./examples/demo-showcase.md",
+    "serve": "node ./bin/mdtopdf.js serve"
+  },
+  "keywords": [
+    "markdown",
+    "pdf",
+    "converter",
+    "katex",
+    "mermaid",
+    "themes",
+    "puppeteer"
+  ],
+  "author": "MDToPDF",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "express": "^4.21.2",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.10.0",
+    "katex": "^0.16.11",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "mermaid": "^12.0.0",
+    "picocolors": "^1.1.0",
+    "puppeteer-core": "^23.4.0",
+    "ws": "^8.18.0"
+  }
+}

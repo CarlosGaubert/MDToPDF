@@ -1,0 +1,31 @@
+# Dependencias
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos del Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos temporales o de prueba sueltos en raíz
+*.tmp
+*.temp
+/document.pdf
+test_*.pdf
+test_*.html

@@ -1,0 +1,70 @@
+/* MDToPDF - Tema Minimal (Estilo Suizo / Bauhaus / Minimalista) */
+
+:root {
+  --color-primary: #000000;
+  --color-text: #171717;
+  --color-text-muted: #737373;
+  --color-bg: #ffffff;
+  --color-surface: #fafafa;
+  --color-border: #e5e5e5;
+  --font-body: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
+  --font-mono: "SF Mono", Menlo, Consolas, monospace;
+  --line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin-top: 1.2em;
+  padding-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin-top: 1.6em;
+}
+
+blockquote:not(.callout) {
+  border-left: 2px solid #000000;
+  background-color: transparent;
+  padding-left: 1em;
+  color: #525252;
+}
+
+.code-block-wrapper {
+  border-radius: 2px;
+  border: 1px solid #d4d4d4;
+  background-color: #171717;
+}
+
+.code-header {
+  background-color: #262626;
+  border-bottom: 1px solid #404040;
+  border-radius: 0;
+}
+
+.table-of-contents {
+  border-radius: 0;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+}
+
+table {
+  border: 1px solid #000000;
+}
+
+th {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+td {
+  border: 1px solid #e5e5e5;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  
+  <style>
+    /* KaTeX CSS embebido */
+    {{katexCss}}
+  </style>
+
+  <style>
+    /* Highlight.js CSS embebido */
+    {{highlightCss}}
+  </style>
+
+  <style>
+    /* Estilos Base */
+    {{baseCss}}
+  </style>
+
+  <style>
+    /* Estilo del Tema: {{themeName}} */
+    {{themeCss}}
+  </style>
+
+  {{#if customCss}}
+  <style>
+    /* CSS Personalizado del Usuario */
+    {{customCss}}
+  </style>
+  {{/if}}
+</head>
+<body class="theme-{{themeName}}">
+
+  {{#if coverHtml}}
+  {{{coverHtml}}}
+  {{/if}}
+
+  <main class="document-content">
+    {{{contentHtml}}}
+  </main>
+
+  {{#if previewScripts}}
+  {{{previewScripts}}}
+  {{/if}}
+</body>
+</html>

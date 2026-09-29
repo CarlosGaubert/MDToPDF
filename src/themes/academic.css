@@ -1,0 +1,77 @@
+/* MDToPDF - Tema Academic (Paper Formal / Reporte Técnico) */
+
+:root {
+  --color-primary: #1e3a8a;
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-bg: #ffffff;
+  --color-surface: #f9fafb;
+  --color-border: #111827;
+  --font-body: "Merriweather", "Georgia", "Cambria", "Times New Roman", serif;
+  --font-heading: "Merriweather", "Georgia", serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --line-height: 1.75;
+  --font-size-base: 10.5pt;
+}
+
+body {
+  text-align: justify;
+  hyphens: auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: #111827;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.9em;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+
+h2 {
+  font-size: 1.35em;
+  font-weight: 700;
+  margin-top: 1.6em;
+}
+
+h3 {
+  font-size: 1.15em;
+  font-style: italic;
+}
+
+/* Tablas estilo APA / Publicación Académica (sin líneas verticales) */
+table {
+  border-top: 2px solid #111827;
+  border-bottom: 2px solid #111827;
+}
+
+th, td {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #d1d5db;
+  padding: 0.5em 0.8em;
+}
+
+th {
+  border-bottom: 1.5px solid #111827;
+  background-color: transparent;
+  font-weight: 700;
+}
+
+blockquote:not(.callout) {
+  border-left: 2px solid #4b5563;
+  font-style: italic;
+  padding-left: 1.5em;
+  margin: 1.5em 2em;
+}
+
+.table-of-contents {
+  background-color: #fafafa;
+  border: 1px solid #d1d5db;
+  font-family: var(--font-body);
+}

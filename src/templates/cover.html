@@ -1,0 +1,46 @@
+<div class="cover-page">
+  <div class="cover-accent-bar"></div>
+  <div class="cover-inner">
+    {{#if badge}}
+    <div class="cover-badge">{{badge}}</div>
+    {{/if}}
+
+    <h1 class="cover-title">{{title}}</h1>
+
+    {{#if subtitle}}
+    <h2 class="cover-subtitle">{{subtitle}}</h2>
+    {{/if}}
+
+    <div class="cover-divider"></div>
+
+    <div class="cover-meta">
+      {{#if author}}
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Autor</span>
+        <span class="cover-meta-value">{{author}}</span>
+      </div>
+      {{/if}}
+
+      {{#if organization}}
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Organización</span>
+        <span class="cover-meta-value">{{organization}}</span>
+      </div>
+      {{/if}}
+
+      {{#if date}}
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Fecha</span>
+        <span class="cover-meta-value">{{date}}</span>
+      </div>
+      {{/if}}
+
+      {{#if version}}
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Versión</span>
+        <span class="cover-meta-value">{{version}}</span>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

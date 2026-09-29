@@ -1,0 +1,227 @@
+/* MDToPDF - Sistema de Resaltado de Sintaxis de Alta Fidelidad y Contraste */
+
+/* Fuentes Mono de Alta Legibilidad */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* Bloques de Código Generales */
+.code-block-wrapper {
+  margin: 1.6em 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45em 0.9em;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  user-select: none;
+}
+
+.code-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.code-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red { background-color: #ff5f56; border: 1px solid #e0443e; }
+.dot-yellow { background-color: #ffbd2e; border: 1px solid #dea123; }
+.dot-green { background-color: #27c93f; border: 1px solid #1aab29; }
+
+.code-lang {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+pre.hljs {
+  margin: 0;
+  padding: 1.1em 1.3em;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, Menlo, monospace;
+  font-size: 0.93rem;
+  font-weight: 500;
+  line-height: 1.65;
+  tab-size: 2;
+  overflow-x: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+code {
+  font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, Menlo, monospace;
+  font-size: 0.9em;
+}
+
+/* Código en Línea (Inline Code) */
+:not(pre) > code {
+  padding: 0.2em 0.45em;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.88em;
+}
+
+/* ========================================================================= */
+/* PALETA CLARA DE ALTO CONTRASTE (Temas: modern, academic, editorial, minimal) */
+/* ========================================================================= */
+
+.hljs {
+  color: #1e293b;
+  background: transparent;
+}
+
+/* Palabras clave (Keywords, storage, imports) */
+.hljs-keyword,
+.hljs-operator,
+.hljs-selector-tag {
+  color: #cf222e;
+  font-weight: 600;
+}
+
+/* Funciones, métodos y títulos */
+.hljs-title,
+.hljs-title.function_,
+.hljs-section {
+  color: #8250df;
+  font-weight: 600;
+}
+
+/* Clases, tipos y constructores */
+.hljs-title.class_,
+.hljs-type {
+  color: #953800;
+  font-weight: 600;
+}
+
+/* Cadenas de texto (Strings) */
+.hljs-string,
+.hljs-regexp {
+  color: #0a3069;
+}
+
+/* Números, booleanos y constantes */
+.hljs-number,
+.hljs-literal,
+.hljs-variable.constant_ {
+  color: #0550ae;
+  font-weight: 600;
+}
+
+/* Comentarios - ¡Legibles, nítidos en color pizarra! */
+.hljs-comment,
+.hljs-quote {
+  color: #57606a;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Atributos y propiedades */
+.hljs-attr,
+.hljs-property,
+.hljs-attribute {
+  color: #116329;
+}
+
+/* Variables y parámetros */
+.hljs-variable,
+.hljs-params {
+  color: #24292f;
+}
+
+/* Puntuación y etiquetas */
+.hljs-punctuation,
+.hljs-tag {
+  color: #57606a;
+}
+
+/* ========================================================================= */
+/* MODO OSCURO (Tema: dark)                                                 */
+/* ========================================================================= */
+
+body.theme-dark .code-block-wrapper {
+  background-color: #0d1117;
+  border-color: #30363d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-dark .code-header {
+  background-color: #161b22;
+  border-bottom-color: #30363d;
+}
+
+body.theme-dark .code-lang {
+  color: #8b949e;
+}
+
+body.theme-dark pre.hljs {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+body.theme-dark :not(pre) > code {
+  background-color: #161b22;
+  border-color: #30363d;
+  color: #58a6ff;
+}
+
+body.theme-dark .hljs-keyword,
+body.theme-dark .hljs-operator,
+body.theme-dark .hljs-selector-tag {
+  color: #ff7b72;
+}
+
+body.theme-dark .hljs-title,
+body.theme-dark .hljs-title.function_,
+body.theme-dark .hljs-section {
+  color: #d2a8ff;
+}
+
+body.theme-dark .hljs-title.class_,
+body.theme-dark .hljs-type {
+  color: #ffa657;
+}
+
+body.theme-dark .hljs-string,
+body.theme-dark .hljs-regexp {
+  color: #a5d6ff;
+}
+
+body.theme-dark .hljs-number,
+body.theme-dark .hljs-literal {
+  color: #79c0ff;
+}
+
+body.theme-dark .hljs-comment,
+body.theme-dark .hljs-quote {
+  color: #8b949e;
+}
+
+body.theme-dark .hljs-attr,
+body.theme-dark .hljs-property {
+  color: #7ee787;
+}
+
+body.theme-dark .hljs-variable,
+body.theme-dark .hljs-params {
+  color: #e6edf3;
+}
